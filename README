@@ -1,0 +1,6 @@
+YOLO-Based Fire Detection Model: Heading Towards Enhanced Safety
+🚨 Overview
+This project implements a YOLO (You Only Look Once) deep learning model for fire detection, aiming to enhance safety by 
+providing early alerts in the event of a fire. Leveraging YOLO's real-time object detection capabilities, the model identifies 
+potential fire hazards in images or video streams, making it suitable for surveillance systems, fire safety management, and 
+emergency response.
