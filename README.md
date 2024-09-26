@@ -30,24 +30,24 @@ python detect.py --source data/images/fire_test.jpg --weights yolov5s.pt --conf 
 python detect.py --source data/videos/fire_test.mp4 --weights yolov5s.pt --conf 0.4
 
 
-🔧 Training the Model on Custom Data
+I. 🔧 Training the Model on Custom Data
 Prepare Dataset: Collect fire and non-fire images, annotate them in YOLO format, and split them into training and validation sets.
 Modify Configs: Update data.yaml with the path to your custom dataset.
 
 
-**Train the Model:**
+II. **Train the Model:**
 python train.py --img 640 --batch 16 --epochs 50 --data ./data.yaml --weights yolov5s.pt
 
 
-**📊 Results & Performance**
+III. **📊 Results & Performance**
 Model Accuracy: Achieved on the test dataset.
 Speed: Detects fire in real-time on images and videos at high resolution.
 Include some demo screenshots or video gifs.
 
 
 
-🙌 Contributing
-Contributions are welcome! If you'd like to improve the model or add new features, feel free to:
+IV. 🙌 Contributing
+Contributions are welcome! If you'd like to improve the model or add new features, feel free to 
 
 Fork the repository
 Create a new branch (git checkout -b feature-branch)
@@ -56,12 +56,12 @@ Push to the branch (git push origin feature-branch)
 Open a pull request
 
 
-📄 License
+V. 📄 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-💬 Contact
+VI. 💬 Contact
 For any questions or suggestions, feel free to open an issue or reach out at s.nilansh07@gmail.com.
 
-🔗 Additional Resources:
+VII. 🔗 Additional Resources:
 YOLOv5 GitHub Repository
 Fire Dataset for Object Detection
