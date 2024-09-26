@@ -34,8 +34,10 @@ python detect.py --source data/videos/fire_test.mp4 --weights yolov5s.pt --conf 
 Prepare Dataset: Collect fire and non-fire images, annotate them in YOLO format, and split them into training and validation sets.
 Modify Configs: Update data.yaml with the path to your custom dataset.
 
+
 **Train the Model:**
 python train.py --img 640 --batch 16 --epochs 50 --data ./data.yaml --weights yolov5s.pt
+
 
 **📊 Results & Performance**
 Model Accuracy: Achieved on the test dataset.
