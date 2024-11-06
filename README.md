@@ -37,7 +37,7 @@ Speed: Detects fire in real-time on images and videos at high resolution.
 Include some demo screenshots or video gifs.
 
 
-# **MAIN:- **
+# MAIN:- 
 
 1. Project Overview
 
