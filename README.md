@@ -1,41 +1,103 @@
-# **YOLO-Based Fire Detection Model: Heading Towards Enhanced Safety**
-🚨 Overview
-This project implements a YOLO (You Only Look Once) deep learning model for fire detection, aiming to enhance safety by providing early alerts in the event of a fire. Leveraging YOLO's real-time object detection capabilities, the model identifies potential fire hazards in images or video streams, making it suitable for surveillance systems, fire safety management, and emergency response.
+# Fire and Smoke Detection using YOLOv8
 
-🚀 Getting Started
+A real-time fire and smoke detection system developed using YOLOv8 (Ultralytics). This project identifies fire and smoke in video frames using a pre-trained YOLOv8 model. The system tracks detected fire and smoke across frames for continuous monitoring, making it suitable for safety and monitoring applications.
 
-1. Clone the Repository:
-git clone [https://github.com/your-username/fire-detection-yolo.git](https://github.com/Nilansh7/YOLO-Based-Fire-Detection-Model)
-cd fire-detection-yolo
+## Features
 
-3. Install Dependencies:
-Ensure you have Python 3.7+ and pip installed. Then, install the required libraries:
-pip install -r requirements.txt
+- **Real-time Detection**: Detects fire and smoke in video frames with high accuracy using YOLOv8.
+- **Tracking**: Tracks detected fire and smoke across multiple frames for continuous monitoring.
+- **Custom Dataset Training**: Trains YOLOv8 model with a custom fire and smoke dataset using Roboflow for dataset management and annotation.
+- **Visualization**: Annotated frames with detected objects (fire/smoke) are saved and can be visualized.
 
-3. Download Pre-trained Weights:
-Download the pre-trained YOLOv5 weights from the official repository or use your own.
+## Technologies Used
 
-4. Run Fire Detection on an Image:
-python detect.py --source data/images/fire_test.jpg --weights yolov5s.pt --conf 0.4
+- **Model Framework**: YOLOv8 (Ultralytics) for object detection
+- **Dataset Management**: Roboflow (for dataset annotation and management)
+- **Backend Framework**: Python (for model training and inference)
+- **GPU Acceleration**: CUDA (for faster inference on supported GPUs)
+- **Libraries**: OpenCV (for video processing and frame handling)
+- **Version Control**: Git, GitHub
 
-6. Run Fire Detection on a Video Stream:
-python detect.py --source data/videos/fire_test.mp4 --weights yolov5s.pt --conf 0.4
+## Installation
+
+### Prerequisites
+
+Make sure you have the following installed:
+- [Python 3.x](https://www.python.org/downloads/)
+- [Git](https://git-scm.com/)
+- [CUDA](https://developer.nvidia.com/cuda-toolkit) (if using GPU acceleration)
+- [YOLOv8](https://github.com/ultralytics/yolov8)
+
+### Steps to Set Up Locally
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/yourusername/fire-detection-yolov8.git
+   cd fire-detection-yolov8
+   ```
+
+2. **Create and Activate a Virtual Environment**
+
+   For Windows:
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+
+   For Mac/Linux:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install Dependencies**
+
+   Install the required libraries using `pip`:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Prepare the Dataset**
+
+   - Use Roboflow to create and annotate a custom dataset for fire and smoke detection.
+   - Download the dataset using the following code:
+
+     ```python
+     from roboflow import Roboflow
+     rf = Roboflow(api_key="your_api_key")
+     project = rf.workspace("your_workspace").project("your_project")
+     dataset = project.version(1).download("yolov8")
+     ```
+
+5. **Train the Model**
+
+   Train the YOLOv8 model with your custom dataset:
+
+   ```bash
+   yolo task=detect mode=train model=yolov8n.pt data=your_custom_data.yaml epochs=50 imgsz=640
+   ```
+
+6. **Run Inference**
+
+   After training, run inference on a test video or image:
+
+   ```bash
+   yolo task=detect mode=predict model=path_to_model weights=yolov8n.pt source=path_to_video_or_image save=True
+   ```
+
+   This will generate annotated frames with fire and smoke detections and save them to the `runs/predict` folder.
+
+## How the System Works
+
+- **Detection**: The system uses YOLOv8 to detect fire and smoke in real-time video frames. The model can be trained on a custom dataset for improved accuracy.
+- **Tracking**: Detected fire and smoke are tracked across subsequent frames to monitor their movement.
+- **Results**: Annotated frames showing fire and smoke are saved, and the results can be viewed or exported.
 
 
-I. 🔧 Training the Model on Custom Data
-Prepare Dataset: Collect fire and non-fire images, annotate them in YOLO format, and split them into training and validation sets.
-Modify Configs: Update data.yaml with the path to your custom dataset.
+---
 
-
-II. **Train the Model:**
-python train.py --img 640 --batch 16 --epochs 50 --data ./data.yaml --weights yolov5s.pt
-
-
-III. **📊 Results & Performance**
-Model Accuracy: Achieved on the test dataset.
-Speed: Detects fire in real-time on images and videos at high resolution.
-Include some demo screenshots or video gifs.
-
+This README provides an overview of the project, installation steps, dataset preparation, model training, and how to run the system. It should help others understand and use the fire detection system effectively.
 
 # MAIN:- 
 
